@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Basic Board Setup - MW &#8212; Group Project 1 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development Tools" href="devtools.html" />
+    <link rel="prev" title="Board History" href="history.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-board-setup-mw">
+<h1>Basic Board Setup - MW<a class="headerlink" href="#basic-board-setup-mw" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preamble">
+<h2>Preamble<a class="headerlink" href="#preamble" title="Permalink to this headline">¶</a></h2>
+<p>I initially started this project by attempting to extract an image directly to the raspberry PI. There are a number of images available from raspberrypi.org. I did this with the opposite of a healess setup, connected to my TV with keyboard and mouse. I found etcher which improved the situation and lead to what our honoroed professor, Roie Black, referenced in an email to our class regarding headless setup.</p>
+</div>
+<div class="section" id="headless-and-vnc">
+<h2>Headless and VNC<a class="headerlink" href="#headless-and-vnc" title="Permalink to this headline">¶</a></h2>
+<p>-Headless Setup Guide: <a class="reference external" href="http://frederickvandenbosch.be/?p=2385">http://frederickvandenbosch.be/?p=2385</a></p>
+<p>This guide gives the fastest method of getting up and running in the least amount of time. The next step for me, being at the time slightly less familiar with Linux than I am now, was to figure out how to get some kind of remote desktop style service that could allow me to remote in from wherever I was. There are a number of solutions out there, one offered on raspberrypi.org, real vnc, seemed to offer a litany of pay type choices which did not appeal to me. That&#8217;s where tight vnc came in to the picture.</p>
+<p>-Tight VNC Guide: <a class="reference external" href="https://www.raspberrypi.org/forums/viewtopic.php?f=49&amp;t=50698">https://www.raspberrypi.org/forums/viewtopic.php?f=49&amp;t=50698</a></p>
+<p>This was handy but ultimately not very useful. Though, as I am not aware of a command line configuration tool for my home router, this has been effective in managing port forwarding and other settings from a remote site.</p>
+</div>
+<div class="section" id="raspberry-pi-location">
+<h2>Raspberry PI Location<a class="headerlink" href="#raspberry-pi-location" title="Permalink to this headline">¶</a></h2>
+<p>One of the things that you realize almost immediately is that it is just so darn inconvenient to have the PI with you, needing to connect to the same network as any host you are using to remote in. This prompted me to hang our group PI from a router on my home network. Thus far, it has allowed each member of the group to reach the PI via SSH reliably.</p>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<p>-Tight VNC: open vnc://our.ip.xxx.xxx:5901 (tight vnc port is 5901, configured for our purposes to be forwarded there from another port)</p>
+<p>-SSH: ssh -p &lt;port&gt; <a class="reference external" href="mailto:pi&#37;&#52;&#48;our&#46;ip&#46;xxx&#46;xxx">pi<span>&#64;</span>our<span>&#46;</span>ip<span>&#46;</span>xxx<span>&#46;</span>xxx</a> (replace &lt;port&gt; with port that forwards to 22 on network)</p>
+<p>-SCP: scp -P &lt;port&gt; file.to.transfer <a class="reference external" href="mailto:pi&#37;&#52;&#48;our&#46;ip&#46;xxx&#46;xxx">pi<span>&#64;</span>our<span>&#46;</span>ip<span>&#46;</span>xxx<span>&#46;</span>xxx</a>:home/pi/...</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Basic Board Setup - MW</a><ul>
+<li><a class="reference internal" href="#preamble">Preamble</a></li>
+<li><a class="reference internal" href="#headless-and-vnc">Headless and VNC</a></li>
+<li><a class="reference internal" href="#raspberry-pi-location">Raspberry PI Location</a></li>
+<li><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="history.html" title="previous chapter">Board History</a></li>
+      <li>Next: <a href="devtools.html" title="next chapter">Development Tools</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/basic board setup.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, John Bradshaw, Michael Scales, Matthew Wiederaenders, Nicholas Moore.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/basic board setup.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

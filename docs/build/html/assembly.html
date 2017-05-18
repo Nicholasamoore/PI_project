@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Processor Assembly Language &#8212; Group Project 1 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Processor Architecture" href="architecture.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="processor-assembly-language">
+<h1>Processor Assembly Language<a class="headerlink" href="#processor-assembly-language" title="Permalink to this headline">¶</a></h1>
+<p>As mentioned in the architecture section, the ARMv8-A supports both 32 and 64-bit instruction sets. For the purposes of this lab report, we will focus on the 64-bit architecture (referred to as A64). It is important to note that the assembler will choose the correct encoding of the same instruction based on the values of the operands.</p>
+<div class="section" id="data-processing-instructions">
+<h2>Data Processing Instructions<a class="headerlink" href="#data-processing-instructions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Arithmetic and Logical Operations</dt>
+<dd><ul class="first last">
+<li>These include Arithmetic (ADD, SUB), Logical (AND, EOR), Comparison (CMP), and Move (MOV) instructions</li>
+<li>Denoted by the instruction followed by the register and two operands</li>
+<li>i.e. ADD X0, X1, #5    //X0 = X1 + 5</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Multiply and Divide Operations</dt>
+<dd><ul class="first last">
+<li>Consists of multiply (MUL, MADD, MNEG) and divide (SDIV, UDIV) instructions</li>
+<li>Denoted by the instruction followed by the register and two operands (or three in the case of MADD and MSUB)</li>
+<li>i.e. MNEG X0, X1, X2    //X0 = -(X1 * X2)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Shift Operations</dt>
+<dd><ul class="first last">
+<li>Consists of Logical (LSL, LSR) and Arithmetic (ASR) instructions</li>
+<li>Denoted by the instruction followed by the register</li>
+<li>i.e. LSL X0    //X0 = X0 * 2</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Bitfield and Byte Maniuplation</dt>
+<dd><ul class="first last">
+<li>Consists of Bitfield (SXTB, UXTB) and bit (RBIT, REV) manipulations</li>
+<li>Denoted by the instruction followed by the destination register and the source register</li>
+<li>i.e. UXTB X0, W1    //Extend the register W1 to 64-bits and store in X0)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Conditional Instructions</dt>
+<dd><ul class="first last">
+<li>Checks condition flags and conditionally performs instruction</li>
+<li>Denoted by the instruction followed by two registers</li>
+<li>i.e. CSET W0, EQ    //If the Z condition flag is set (previous comparison was 0) then W0 = 1, otherwise W0 = 0</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="memory-access-instructions">
+<h2>Memory Access Instructions<a class="headerlink" href="#memory-access-instructions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Consists of Load (LDR) and Store (STR) instructions</li>
+<li>Denoted by the instruction followed by the register and an address</li>
+<li>i.e. LDR X0, [X1, #8]    //Load from address X1 + 8 into X0</li>
+</ul>
+</div>
+<div class="section" id="flow-control">
+<h2>Flow Control<a class="headerlink" href="#flow-control" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Consists of branch (CBZ, CBNZ) instructions</li>
+<li>Denoted by the instruction followed by the register and branch label</li>
+<li>i.e. CBNZ X0, label    //Branch to label if x0 != 0</li>
+</ul>
+</div>
+<div class="section" id="misc">
+<h2>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Contains system control and other instructions. Seems to be outside the scope of this class.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Processor Assembly Language</a><ul>
+<li><a class="reference internal" href="#data-processing-instructions">Data Processing Instructions</a></li>
+<li><a class="reference internal" href="#memory-access-instructions">Memory Access Instructions</a></li>
+<li><a class="reference internal" href="#flow-control">Flow Control</a></li>
+<li><a class="reference internal" href="#misc">Misc</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="architecture.html" title="previous chapter">Processor Architecture</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/assembly.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, John Bradshaw, Michael Scales, Matthew Wiederaenders, Nicholas Moore.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/assembly.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

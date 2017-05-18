@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Processor Architecture &#8212; Group Project 1 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Processor Assembly Language" href="assembly.html" />
+    <link rel="prev" title="Development Tools" href="devtools.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="processor-architecture">
+<h1>Processor Architecture<a class="headerlink" href="#processor-architecture" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="specs">
+<h2>Specs<a class="headerlink" href="#specs" title="Permalink to this headline">¶</a></h2>
+<p>The Raspberry Pi 3 uses an ARM Cortex A53 processor, utilizing the ARMv8-A 64-bit instruction set It comes with 4 cores running at  1.2 GHz. While it uses a 64-bit instruction set, it is also capable of seamlessly supporting 32-bit instruction sets to allow for backwards compatibility.</p>
+</div>
+<div class="section" id="block-diagram">
+<h2>Block Diagram<a class="headerlink" href="#block-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/a57blockdiagram.png" src="_images/a57blockdiagram.png" />
+<p>(Note: this block diagram is of the Cortex-A57 processor, which is the more powerful version of the A53)</p>
+</div>
+<div class="section" id="processor-operation">
+<h2>Processor Operation<a class="headerlink" href="#processor-operation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Instructions are fetched from the L1 Instruction Cache</li>
+<li>Up to 3 instructions can then be decoded at a time (3-way instruction decode)</li>
+<li>Registers are renamed to avoid any problems in data dependencies between instructions</li>
+<li>Up to 8 micro-operations can then be performed simultaneously</li>
+<li>Data is then retired either to registers or L1 Data Cache</li>
+</ul>
+</div>
+<div class="section" id="registers">
+<h2>Registers<a class="headerlink" href="#registers" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/ARMv8_Registers.PNG" src="_images/ARMv8_Registers.PNG" />
+<ul class="simple">
+<li>ARMv8 uses 31 64-bit general purpose registers, referred to X0 through X30. They can also be used in a 32-bit form by referring to them as W0 through W30, which disregards the upper 32-bits of the register. Writing to a register using the W naming convention zeroes out the upper 32-bits.</li>
+<li>Additionally, there are 32 128-bit floating point registers, referred to as V0 through V31. The precision of these registers can be changed to Double (64-bits), Single (32-bits), and Half (16-bits) using Dn, Sn, and Hn to refer to the registers, respectively.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Processor Architecture</a><ul>
+<li><a class="reference internal" href="#specs">Specs</a></li>
+<li><a class="reference internal" href="#block-diagram">Block Diagram</a></li>
+<li><a class="reference internal" href="#processor-operation">Processor Operation</a></li>
+<li><a class="reference internal" href="#registers">Registers</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="devtools.html" title="previous chapter">Development Tools</a></li>
+      <li>Next: <a href="assembly.html" title="next chapter">Processor Assembly Language</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/architecture.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, John Bradshaw, Michael Scales, Matthew Wiederaenders, Nicholas Moore.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/architecture.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
